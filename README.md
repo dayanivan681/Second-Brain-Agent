@@ -12,7 +12,8 @@ repositorio guarda solo código, documentación y datos sintéticos; nunca el Va
 |---|---|
 | 1. Contexto portable | **Pendiente** — falta el paquete con fuentes reales. Formato, manifiesto y validador listos. |
 | 2. Memoria | **Implementada y probada con datos sintéticos**: núcleo + persistencia Postgres (esquema Supabase, probado con PGlite y el driver `pg`). Falta desplegar en un proyecto Supabase real. |
-| 3–6 | No iniciadas |
+| 3. Consultas | Agente con herramientas y citas verificadas; falta conectar el modelo real (`OPENAI_API_KEY`) |
+| 4–6 | No iniciadas |
 
 > Todo lo probado hasta ahora usa **datos sintéticos** (`fixtures/synthetic/`).
 > No se ha consultado ningún archivo local ni el Vault real.
@@ -33,6 +34,7 @@ Requiere Node ≥ 20. Sin dependencias del Mac, iCloud ni rutas absolutas.
 |---|---|
 | `src/core/` | Dominio: memorias, importador Markdown, manifiesto, frescura, propuestas, evaluación |
 | `src/db/` | Persistencia Postgres/Supabase |
+| `src/agent/` | Agente de consultas con herramientas |
 | `supabase/migrations/` | Esquema SQL |
 | `test/` | Contrato del dominio (Vitest) |
 | `fixtures/synthetic/` | Vault y preguntas **sintéticas** |
@@ -43,6 +45,6 @@ Requiere Node ≥ 20. Sin dependencias del Mac, iCloud ni rutas absolutas.
 ## Documentación
 
 - [Proyecto](docs/proyecto.md) · [Arquitectura](docs/arquitectura.md) · [Roadmap](docs/roadmap.md)
-- [Paquete de contexto portable](docs/contexto-portable.md) · [Supabase](docs/supabase.md)
+- [Paquete de contexto portable](docs/contexto-portable.md) · [Supabase](docs/supabase.md) · [Agente](docs/agente.md)
 - [Decisiones](docs/decisiones/)
 - [Propuestas para el Vault](vault-proposals/2026-10-07/LEEME.md)
