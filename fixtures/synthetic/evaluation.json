@@ -1,0 +1,12 @@
+{
+  "synthetic": true,
+  "note": "Preguntas SINTÉTICAS para probar el arnés. La batería real (30–50 preguntas) se redacta en la fase 1 con fuentes seleccionadas.",
+  "questions": [
+    { "id": "s01", "question": "¿Cuál es el objetivo de fecha de Alfa?", "lang": "es", "kind": "current", "expected": "Beta antes del 30 de noviembre", "evidence": ["projects-proyecto-alfa"], "critical": false, "synthetic": true },
+    { "id": "s02", "question": "What did we decide about Beta's market?", "lang": "en", "kind": "current", "expected": "Focus on B2B first", "evidence": ["projects-proyecto-beta"], "critical": false, "synthetic": true },
+    { "id": "s03", "question": "¿Qué pricing decidimos para Alfa, monthly o anual?", "lang": "spanglish", "kind": "current", "expected": "Pagos mensuales", "evidence": ["projects-proyecto-alfa"], "critical": false, "synthetic": true },
+    { "id": "s04", "question": "¿Seguimos posponiendo la app móvil de Alfa?", "lang": "es", "kind": "reverted-decision", "expected": "Responder según la versión vigente de la nota y señalar si la decisión se revirtió", "evidence": ["projects-proyecto-alfa"], "critical": true, "synthetic": true },
+    { "id": "s05", "question": "¿Cuál es el estado del proyecto Gamma?", "lang": "es", "kind": "missing-data", "expected": "No hay fuente; decirlo sin inventar", "evidence": [], "critical": true, "synthetic": true },
+    { "id": "s06", "question": "Is Beta's status current?", "lang": "en", "kind": "missing-data", "expected": "Fuente con más de 30 días: marcar como antigua", "evidence": ["projects-proyecto-beta"], "critical": true, "synthetic": true }
+  ]
+}
