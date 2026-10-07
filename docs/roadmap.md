@@ -16,7 +16,7 @@ fuentes y validación técnica.
 
 | Criterio | Cobertura |
 |---|---|
-| Build y tests desde entorno limpio en la nube | CI en `docs/ci/ci.yml` (mover a `.github/workflows/` para activarlo) |
+| Build y tests desde entorno limpio en la nube | CI (`.github/workflows/ci.yml`) |
 | Sin rutas absolutas del Mac ni iCloud | `check:portable`, validador de manifiesto |
 | Fuentes ausentes o antiguas señaladas | `assessFreshness` (`no-source`, `stale`, `synthetic`) |
 | Propuestas Markdown con detección de conflictos | `checkProposal` |

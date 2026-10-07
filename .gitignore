@@ -6,4 +6,3 @@ dist/
 # Contexto real: nunca se versiona aquí, se monta en tiempo de ejecución
 context/private/
 *.local.md
-package-lock.json

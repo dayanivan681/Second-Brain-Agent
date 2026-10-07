@@ -20,7 +20,7 @@ repositorio guarda solo código, documentación y datos sintéticos; nunca el Va
 ## Uso
 
 ```bash
-npm install
+npm ci
 npm run check        # typecheck + tests + comprobación de rutas portables
 node scripts/build-manifest.mjs <dir-paquete> <packageId>   # genera manifest.json
 ```
