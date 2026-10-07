@@ -11,7 +11,7 @@ repositorio guarda solo código, documentación y datos sintéticos; nunca el Va
 | Fase | Estado |
 |---|---|
 | 1. Contexto portable | **Pendiente** — falta el paquete con fuentes reales. Formato, manifiesto y validador listos. |
-| 2. Memoria | **Núcleo implementado y probado con datos sintéticos** (importación, procedencia, revisiones, corrección, eliminación, exportación/restauración). Falta persistencia en Postgres. |
+| 2. Memoria | **Implementada y probada con datos sintéticos**: núcleo + persistencia Postgres (esquema Supabase, probado con PGlite y el driver `pg`). Falta desplegar en un proyecto Supabase real. |
 | 3–6 | No iniciadas |
 
 > Todo lo probado hasta ahora usa **datos sintéticos** (`fixtures/synthetic/`).
@@ -32,6 +32,8 @@ Requiere Node ≥ 20. Sin dependencias del Mac, iCloud ni rutas absolutas.
 | Ruta | Contenido |
 |---|---|
 | `src/core/` | Dominio: memorias, importador Markdown, manifiesto, frescura, propuestas, evaluación |
+| `src/db/` | Persistencia Postgres/Supabase |
+| `supabase/migrations/` | Esquema SQL |
 | `test/` | Contrato del dominio (Vitest) |
 | `fixtures/synthetic/` | Vault y preguntas **sintéticas** |
 | `scripts/` | Generador de manifiesto y verificación de portabilidad |
@@ -41,6 +43,6 @@ Requiere Node ≥ 20. Sin dependencias del Mac, iCloud ni rutas absolutas.
 ## Documentación
 
 - [Proyecto](docs/proyecto.md) · [Arquitectura](docs/arquitectura.md) · [Roadmap](docs/roadmap.md)
-- [Paquete de contexto portable](docs/contexto-portable.md)
+- [Paquete de contexto portable](docs/contexto-portable.md) · [Supabase](docs/supabase.md)
 - [Decisiones](docs/decisiones/)
 - [Propuestas para el Vault](vault-proposals/2026-10-07/LEEME.md)

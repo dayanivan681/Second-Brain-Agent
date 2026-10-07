@@ -6,7 +6,7 @@
 |---|---|---|
 | Dominio | TypeScript puro (`src/core`) | Implementado |
 | App | Next.js en Vercel | Fase 4 |
-| Datos | Supabase Postgres + almacenamiento privado | Fase 2 (pendiente) |
+| Datos | Supabase Postgres + almacenamiento privado | Esquema y adaptador implementados ([supabase.md](supabase.md)); proyecto real pendiente |
 | Búsqueda | Texto normalizado (hecho) + pgvector (pendiente) | Parcial |
 | LLM | OpenAI mediante adaptador intercambiable | Fase 3 |
 | Calendario | Google Calendar, solo lectura | Fase 4 |
@@ -38,8 +38,8 @@ SourceRef { sourceId, path, contentHash, version?, capturedAt, synthetic, anchor
 Revision { at, by: import|user|system, change, previousStatement?, reason?, source? }
 ```
 
-`MemoryStore` (en memoria) define el contrato; la implementación Postgres
-deberá pasar los mismos tests.
+`MemoryStore` contiene la lógica sobre un `MemoryRepository`; los adaptadores en
+memoria y Postgres pasan los mismos tests de contrato.
 
 ## Seguridad
 
