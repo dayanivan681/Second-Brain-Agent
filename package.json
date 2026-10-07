@@ -1,0 +1,29 @@
+{
+  "name": "personal-intelligence-system",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Personal Intelligence System — memoria con procedencia, consultas con evidencia y propuestas revisables para Obsidian.",
+  "type": "module",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "check:portable": "node scripts/check-portable.mjs",
+    "check": "npm run typecheck && npm test && npm run check:portable"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dayanivan681/Second-Brain-Agent.git"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.7"
+  },
+  "dependencies": {
+    "yaml": "^2.9.1"
+  }
+}
