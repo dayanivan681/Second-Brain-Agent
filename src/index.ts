@@ -17,3 +17,4 @@ export * from "./core/semantic.js";
 export * from "./core/in-memory-vector-index.js";
 export * from "./core/openai-embedder.js";
 export * from "./db/postgres-vector-index.js";
+export * from "./core/calibration.js";
