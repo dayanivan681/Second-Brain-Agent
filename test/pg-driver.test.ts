@@ -1,4 +1,5 @@
 import { PGlite } from "@electric-sql/pglite";
+import { vector } from "@electric-sql/pglite-pgvector";
 import { PGLiteSocketServer } from "@electric-sql/pglite-socket";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { sha256 } from "../src/core/hash.js";
@@ -24,7 +25,7 @@ describe("driver pg", () => {
 
   beforeAll(async () => {
     const port = 40_000 + Math.floor(Math.random() * 20_000);
-    server = new PGLiteSocketServer({ db: new PGlite(), port });
+    server = new PGLiteSocketServer({ db: new PGlite({ extensions: { vector } }), port });
     await server.start();
     // PGlite atiende una conexión: el pool se limita a una.
     client = createPgClient(`postgres://postgres@127.0.0.1:${port}/postgres`, { max: 1 });
