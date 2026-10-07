@@ -34,7 +34,7 @@ presupuesto. Por defecto: `read` + `propose`, 8 pasos, 16 llamadas.
 |---|---|---|
 | 1. Responder | Investiga y responde con evidencia | ✔ |
 | 2. Proponer | Deja cambios para el Vault en cola de revisión | ✔ |
-| 3. Rutinas | Ejecuciones programadas (briefing de Today, detección de cambios y contradicciones) | Siguiente |
+| 3. Rutinas | Briefing diario programado ([briefing.md](briefing.md)); detección de contradicciones pendiente | ✔ parcial |
 | 4. Escribir | Actualiza la memoria directamente | Requiere decidir la autoridad (abajo) |
 
 **Decisión pendiente — autoridad de los datos.** Hoy Obsidian es la autoridad y el
