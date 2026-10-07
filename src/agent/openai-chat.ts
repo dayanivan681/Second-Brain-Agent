@@ -22,6 +22,11 @@ export class OpenAIChatModel implements ChatModel {
       headers: { "content-type": "application/json", authorization: `Bearer ${this.apiKey}` },
       body: JSON.stringify({
         model: this.name,
+        store: false,
+        // GPT-6 Luna permite herramientas en Chat Completions sin razonamiento.
+        ...(this.name === "gpt-6-luna" || this.name.startsWith("gpt-6-luna-")
+          ? { reasoning_effort: "none" }
+          : {}),
         messages: messages.map(toOpenAI),
         ...(tools.length
           ? { tools: tools.map((t) => ({ type: "function", function: { name: t.name, description: t.description, parameters: t.parameters } })) }

@@ -185,8 +185,24 @@ describe("OpenAIChatModel", () => {
     );
     expect(turn).toEqual({ content: null, toolCalls: [{ id: "c1", name: "search_memories", arguments: '{"query":"x"}' }], usage: { inputTokens: 10, outputTokens: 3 } });
     expect(sent.model).toBe("modelo-configurado");
+    expect(sent.store).toBe(false);
+    expect(sent).not.toHaveProperty("reasoning_effort");
     expect((sent.messages as unknown[])[2]).toEqual({ role: "tool", tool_call_id: "a", content: "{}" });
     expect((sent.tools as Array<{ function: { name: string } }>)[0]?.function.name).toBe("search_memories");
+  });
+
+  it.each(["gpt-6-luna", "gpt-6-luna-2026-09-15"])("configura herramientas sin razonamiento para %s", async (name) => {
+    let sent: Record<string, unknown> = {};
+    const fakeFetch = (async (_url: string, init: RequestInit) => {
+      sent = JSON.parse(String(init.body)) as Record<string, unknown>;
+      return new Response(JSON.stringify({ choices: [{ message: { content: "ok" } }] }));
+    }) as typeof fetch;
+    await new OpenAIChatModel("sk-test", name, fakeFetch).complete(
+      [{ role: "user", content: "hola" }],
+      [{ name: "list_domains", description: "d", parameters: { type: "object" } }],
+    );
+    expect(sent).toMatchObject({ model: name, store: false, reasoning_effort: "none" });
+    expect(sent.tools).toHaveLength(1);
   });
 
   it("falla con errores HTTP", async () => {
