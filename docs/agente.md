@@ -47,3 +47,8 @@ guarda historia y permite revertir. Obsidian quedaría como vista o exportación
 `ChatModel` es independiente del proveedor. `OpenAIChatModel` usa Chat Completions
 con herramientas; configurar `OPENAI_API_KEY` y `OPENAI_CHAT_MODEL` (verificar
 privacidad y precios). Los tests usan un modelo guionizado.
+
+## Agentes externos
+
+La memoria también está disponible como servidor MCP de solo lectura
+([mcp.md](mcp.md)) para la Agents API de OpenAI u otros clientes.
