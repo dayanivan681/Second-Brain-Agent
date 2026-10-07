@@ -54,7 +54,12 @@ PGlite. No se ha probado contra un proyecto Supabase real.
 - Un trigger purga el embedding en cuanto una memoria se elimina.
 - `OpenAIEmbedder` (`text-embedding-3-small`) usa `OPENAI_API_KEY`;
   `HashingEmbedder` es determinista y **no semántico**, solo para tests.
-- El umbral y la calidad de recuperación deben calibrarse con la evaluación real.
+- El umbral y la calidad de recuperación deben calibrarse con la evaluación real:
+  `collectCandidates(search, preguntas)` + `chooseThreshold(...)` proponen el
+  `minSimilarity` que maximiza F1 (pendiente: embeddings reales y la batería de
+  30–50 preguntas).
+- Estado en Supabase (`personal-intelligence-system`): migraciones de memoria y
+  semántica aplicadas; trigger de purga verificado.
 
 ## Pendiente
 
