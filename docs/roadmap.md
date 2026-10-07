@@ -3,7 +3,7 @@
 | Fase | Entregable | Condición para avanzar | Estado |
 |---|---|---|---|
 | 1. Contexto portable | Fuentes seleccionadas, manifiesto y 30–50 preguntas de evaluación | Fuentes, respuestas esperadas y lagunas documentadas | Herramientas listas; **paquete real pendiente** |
-| 2. Memoria | Importación, procedencia, revisiones, corrección y exportación | Cambios persistentes con historia preservada | Núcleo en memoria ✔; persistencia Postgres pendiente |
+| 2. Memoria | Importación, procedencia, revisiones, corrección y exportación | Cambios persistentes con historia preservada | Núcleo ✔; persistencia Postgres ✔ (PGlite); proyecto Supabase pendiente |
 | 3. Consultas | Respuestas con evidencia e historial | Evaluación de estado actual e histórico aprobada | Arnés de evaluación ✔ |
 | 4. MVP | Calendar, Today y revisión de propuestas | Prioridades fundamentadas y fallos visibles | — |
 | 5. Piloto | Dos semanas de uso, costes y fallos registrados | Criterios de aceptación cumplidos | — |
@@ -32,6 +32,5 @@ fuentes y validación técnica.
 1. **(Usuario, local)** Revisar y aplicar `vault-proposals/2026-10-07/` en el Vault.
 2. **(Usuario, local)** Preparar el paquete de contexto según `docs/contexto-portable.md`
    y redactar 30–50 preguntas de evaluación con respuestas esperadas.
-3. **(Constructor)** Esquema Postgres + implementación de `MemoryStore` sobre Supabase,
-   ejecutando el mismo contrato de tests.
+3. **(Usuario)** Crear el proyecto Supabase (ver `docs/supabase.md`).
 4. **(Constructor)** Adaptador LLM y capa de consultas con citas obligatorias.
