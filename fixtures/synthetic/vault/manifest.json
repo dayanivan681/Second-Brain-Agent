@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "packageId": "synthetic-2026-10-07",
+  "capturedAt": "2026-10-07T15:09:26.823Z",
+  "synthetic": true,
+  "entries": [
+    {
+      "id": "projects-proyecto-alfa",
+      "path": "projects/proyecto-alfa.md",
+      "sha256": "6a9ca4518b3af0af1d8cb84d7028385054b9355a5dcee0a649eb7afb8c967f4b",
+      "capturedAt": "2026-10-07T15:09:26.823Z",
+      "originalNote": "projects/proyecto-alfa.md",
+      "version": "2026-09-15",
+      "domain": "sintetico-alfa",
+      "synthetic": true
+    },
+    {
+      "id": "projects-proyecto-beta",
+      "path": "projects/proyecto-beta.md",
+      "sha256": "02d7c72b0312cfe98305308ee7eb277f98db0c90a7c939e14992297c85699735",
+      "capturedAt": "2026-10-07T15:09:26.823Z",
+      "originalNote": "projects/proyecto-beta.md",
+      "version": "2026-08-01",
+      "domain": "sintetico-beta",
+      "synthetic": true
+    },
+    {
+      "id": "reglas-generales",
+      "path": "reglas-generales.md",
+      "sha256": "9389ea0c0449451f9b7403104ab0f239d310339586439f9090c83a89bc54fa72",
+      "capturedAt": "2026-10-07T15:09:26.823Z",
+      "originalNote": "reglas-generales.md",
+      "version": "2026-09-01",
+      "domain": "general",
+      "synthetic": true
+    }
+  ]
+}
