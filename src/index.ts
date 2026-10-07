@@ -13,3 +13,7 @@ export * from "./db/sql.js";
 export * from "./db/migrate.js";
 export * from "./db/pg-client.js";
 export * from "./db/postgres-repository.js";
+export * from "./core/semantic.js";
+export * from "./core/in-memory-vector-index.js";
+export * from "./core/openai-embedder.js";
+export * from "./db/postgres-vector-index.js";

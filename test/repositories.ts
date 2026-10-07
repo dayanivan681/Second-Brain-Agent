@@ -1,4 +1,5 @@
 import { PGlite } from "@electric-sql/pglite";
+import { vector } from "@electric-sql/pglite-pgvector";
 import { InMemoryRepository } from "../src/core/in-memory-repository.js";
 import type { MemoryRepository } from "../src/core/repository.js";
 import { migrate } from "../src/db/migrate.js";
@@ -13,7 +14,7 @@ let slot = 0;
 
 async function database(index: number): Promise<SqlClient> {
   databases[index] ??= (async () => {
-    const sql = createPgliteClient(new PGlite());
+    const sql = createPgliteClient(new PGlite({ extensions: { vector } }));
     await migrate(sql);
     return sql;
   })();

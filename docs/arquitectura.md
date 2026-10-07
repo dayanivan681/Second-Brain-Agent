@@ -7,7 +7,7 @@
 | Dominio | TypeScript puro (`src/core`) | Implementado |
 | App | Next.js en Vercel | Fase 4 |
 | Datos | Supabase Postgres + almacenamiento privado | Esquema y adaptador implementados ([supabase.md](supabase.md)); proyecto real pendiente |
-| Búsqueda | Texto normalizado (hecho) + pgvector (pendiente) | Parcial |
+| Búsqueda | Híbrida: texto normalizado + pgvector (RRF) | Implementada; embeddings reales pendientes de clave |
 | LLM | OpenAI mediante adaptador intercambiable | Fase 3 |
 | Calendario | Google Calendar, solo lectura | Fase 4 |
 

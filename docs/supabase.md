@@ -41,9 +41,23 @@ PGlite. No se ha probado contra un proyecto Supabase real.
 3. Guardar `DATABASE_URL` como variable de entorno del servidor (Vercel), nunca en el Vault.
 4. Exportar con `MemoryStore.export()` y probar `restore` en un repositorio vacío antes de importar datos reales.
 
+## Búsqueda semántica (pgvector)
+
+`supabase/migrations/20261008000000_semantic.sql`: tabla `memory_embeddings`
+(`vector(1536)`, índice HNSW coseno) con un embedding por memoria activa.
+
+- `SemanticSearch.sync()` embebe lo nuevo o corregido y retira lo retractado o
+  eliminado; es idempotente.
+- `SemanticSearch.search()` fusiona búsqueda textual y vectorial (RRF), solo
+  devuelve memorias activas cuyo embedding corresponde al texto actual y
+  descarta vecinos con similitud < `minSimilarity` (0.25 por defecto).
+- Un trigger purga el embedding en cuanto una memoria se elimina.
+- `OpenAIEmbedder` (`text-embedding-3-small`) usa `OPENAI_API_KEY`;
+  `HashingEmbedder` es determinista y **no semántico**, solo para tests.
+- El umbral y la calidad de recuperación deben calibrarse con la evaluación real.
+
 ## Pendiente
 
-- pgvector y búsqueda semántica (la búsqueda actual es textual, en la aplicación).
 - Políticas RLS por usuario y dominio.
 - Concurrencia: pensado para un único usuario; dos importaciones simultáneas de
   la misma fuente podrían chocar en la clave única (la transacción se revierte).
