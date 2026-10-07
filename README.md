@@ -37,6 +37,7 @@ Requiere Node ≥ 20. Sin dependencias del Mac, iCloud ni rutas absolutas.
 | `src/db/` | Persistencia Postgres/Supabase |
 | `src/agent/` | Agente de consultas con herramientas |
 | `src/briefing/` | Briefing diario de Today |
+| `src/mcp/` | Servidor MCP de solo lectura sobre la memoria |
 | `supabase/migrations/` | Esquema SQL |
 | `test/` | Contrato del dominio (Vitest) |
 | `fixtures/synthetic/` | Vault y preguntas **sintéticas** |
@@ -47,6 +48,6 @@ Requiere Node ≥ 20. Sin dependencias del Mac, iCloud ni rutas absolutas.
 ## Documentación
 
 - [Proyecto](docs/proyecto.md) · [Arquitectura](docs/arquitectura.md) · [Roadmap](docs/roadmap.md)
-- [Paquete de contexto portable](docs/contexto-portable.md) · [Supabase](docs/supabase.md) · [Agente](docs/agente.md) · [Briefing](docs/briefing.md)
+- [Paquete de contexto portable](docs/contexto-portable.md) · [Supabase](docs/supabase.md) · [Agente](docs/agente.md) · [Briefing](docs/briefing.md) · [MCP](docs/mcp.md)
 - [Decisiones](docs/decisiones/)
 - [Propuestas para el Vault](vault-proposals/2026-10-07/LEEME.md)
