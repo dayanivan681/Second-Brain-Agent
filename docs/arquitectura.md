@@ -8,7 +8,7 @@
 | App | Next.js en Vercel | Fase 4 |
 | Datos | Supabase Postgres + almacenamiento privado | Esquema y adaptador implementados ([supabase.md](supabase.md)); proyecto real pendiente |
 | Búsqueda | Híbrida: texto normalizado + pgvector (RRF) | Implementada; embeddings reales pendientes de clave |
-| LLM | OpenAI mediante adaptador intercambiable | Fase 3 |
+| LLM | Agente con herramientas (`src/agent`), OpenAI vía adaptador | Implementado; clave y modelo pendientes |
 | Calendario | Google Calendar, solo lectura | Fase 4 |
 
 Verificar capacidades, privacidad y precios de cada servicio **antes de contratar**.
