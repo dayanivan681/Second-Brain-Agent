@@ -24,7 +24,7 @@ async function database(index: number): Promise<SqlClient> {
 /** Base de datos limpia y migrada, compartida dentro del archivo de test. */
 export async function freshDatabase(index = 0): Promise<SqlClient> {
   const sql = await database(index);
-  await sql.exec("truncate memories cascade");
+  await sql.exec("truncate memories, briefings cascade");
   return sql;
 }
 

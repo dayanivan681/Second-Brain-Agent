@@ -1,0 +1,27 @@
+name: Briefing diario
+on:
+  schedule:
+    # 11:00 UTC de lunes a viernes; ajustar a la zona horaria del usuario.
+    - cron: "0 11 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Regenerar aunque ya exista el de hoy"
+        type: boolean
+        default: false
+jobs:
+  briefing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run briefing -- ${{ inputs.force && '--force' || '' }}
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_CHAT_MODEL: ${{ vars.OPENAI_CHAT_MODEL }}
+          BRIEFING_TZ: ${{ vars.BRIEFING_TZ }}
