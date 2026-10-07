@@ -38,8 +38,21 @@ de propuestas persistente.
 DATABASE_URL=… MCP_TOKEN=… [OPENAI_API_KEY=…] [PORT=8787] npm run mcp
 ```
 
-Desplegar como servicio Node 22 (`npm ci && npm run mcp`) en un hosting con HTTPS
-(Render, Fly.io, Railway…). Pendiente de elegir.
+### Render (elegido)
+
+`render.yaml` define un *Web Service* Node 22: `npm ci --include=dev`, `npm run mcp`,
+health check `/healthz`, despliegue automático desde `main`.
+
+1. Render → **New → Blueprint** → este repositorio.
+2. Introducir los secretos que pide: `MCP_TOKEN`, `DATABASE_URL` y, opcional,
+   `OPENAI_API_KEY` (sin ella la búsqueda es solo textual).
+3. `DATABASE_URL`: cadena del **pooler** de Supabase (Settings → Database →
+   Connection string). Si el arranque falla por el certificado SSL, revisarlo antes
+   de desactivar la verificación.
+4. URL para OpenAI: `https://<servicio>.onrender.com/mcp`.
+
+El plan `free` se duerme tras inactividad y el primer acceso tarda; si el agente de
+OpenAI agota el tiempo de espera, cambiar a `starter`.
 
 ## Conectarlo a la Agents API de OpenAI
 
