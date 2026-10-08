@@ -11,6 +11,7 @@ export class OpenAIChatModel implements ChatModel {
     private readonly apiKey: string,
     readonly name: string,
     private readonly fetchImpl: Fetch = fetch,
+    private readonly timeoutMs = 30_000,
   ) {
     if (!apiKey) throw new Error("Falta la clave de OpenAI");
     if (!name) throw new Error("Falta el nombre del modelo");
@@ -19,9 +20,15 @@ export class OpenAIChatModel implements ChatModel {
   async complete(messages: ChatMessage[], tools: ToolSpec[]): Promise<ModelTurn> {
     const response = await this.fetchImpl("https://api.openai.com/v1/chat/completions", {
       method: "POST",
+      signal: AbortSignal.timeout(this.timeoutMs),
       headers: { "content-type": "application/json", authorization: `Bearer ${this.apiKey}` },
       body: JSON.stringify({
         model: this.name,
+        store: false,
+        // GPT-6 Luna permite herramientas en Chat Completions sin razonamiento.
+        ...(this.name === "gpt-6-luna" || this.name.startsWith("gpt-6-luna-")
+          ? { reasoning_effort: "none" }
+          : {}),
         messages: messages.map(toOpenAI),
         ...(tools.length
           ? { tools: tools.map((t) => ({ type: "function", function: { name: t.name, description: t.description, parameters: t.parameters } })) }

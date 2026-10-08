@@ -52,3 +52,29 @@ privacidad y precios). Los tests usan un modelo guionizado.
 
 La memoria también está disponible como servidor MCP de solo lectura
 ([mcp.md](mcp.md)) para la Agents API de OpenAI u otros clientes.
+
+### Selección inicial — 7 de octubre de 2026
+
+Modelo elegido para la primera medición: `OPENAI_CHAT_MODEL=gpt-6-luna`.
+La [documentación oficial](https://developers.openai.com/api/docs/models/gpt-6-luna)
+publica tarifas Standard de $0.10 por millón de tokens de entrada y $0.50 de
+salida para contexto corto; caché, contexto largo y otros modos tienen tarifas
+distintas. Es una selección inicial por coste, pendiente de medir calidad real.
+
+El adaptador indica `reasoning_effort: "none"` para este modelo porque Chat
+Completions solo permite sus herramientas con ese ajuste. Usa `store: false`
+para todos los modelos. Esto no equivale a retención cero: los
+[controles de datos de OpenAI](https://developers.openai.com/api/docs/guides/your-data)
+indican que los datos API no se usan para entrenamiento salvo consentimiento y
+que los registros de supervisión de abuso pueden conservarse hasta 30 días.
+
+En GitHub Actions, el modelo va en Variables y la clave en Secrets; `.env` es
+solo una configuración local ignorada por Git. Los scripts leen `process.env`:
+crear `.env` no lo carga automáticamente. En Node 22 puede cargarse mediante
+`node --env-file=.env --import tsx scripts/daily-briefing.ts`, una vez configurada
+también la base de datos. No versionar claves ni cadenas de conexión.
+
+La batería disponible contiene seis preguntas sintéticas. `scoreEvaluation`
+puntúa resultados suministrados y `calibration.ts` calibra búsqueda; ninguno
+ejecuta por sí solo una evaluación de respuestas del modelo real. Faltan la
+batería real de 30–50 preguntas y una ejecución revisada contra sus fuentes.
