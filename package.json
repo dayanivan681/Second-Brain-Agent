@@ -16,7 +16,8 @@
     "briefing": "tsx scripts/daily-briefing.ts",
     "mcp": "tsx scripts/mcp-server.ts",
     "import": "tsx scripts/import-package.ts",
-    "purge-synthetic": "tsx scripts/purge-synthetic.ts"
+    "purge-synthetic": "tsx scripts/purge-synthetic.ts",
+    "ask": "tsx scripts/ask-agent.ts"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.32.1",
+    "openai": "^7.30.0",
     "pg": "^8.23.1",
     "yaml": "^2.9.1",
     "zod": "^4.6.5"
