@@ -14,7 +14,9 @@
     "check:portable": "node scripts/check-portable.mjs",
     "check": "npm run typecheck && npm test && npm run check:portable",
     "briefing": "tsx scripts/daily-briefing.ts",
-    "mcp": "tsx scripts/mcp-server.ts"
+    "mcp": "tsx scripts/mcp-server.ts",
+    "import": "tsx scripts/import-package.ts",
+    "purge-synthetic": "tsx scripts/purge-synthetic.ts"
   },
   "repository": {
     "type": "git",
