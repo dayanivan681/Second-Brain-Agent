@@ -48,6 +48,6 @@ Requiere Node ≥ 20. Sin dependencias del Mac, iCloud ni rutas absolutas.
 ## Documentación
 
 - [Proyecto](docs/proyecto.md) · [Arquitectura](docs/arquitectura.md) · [Roadmap](docs/roadmap.md)
-- [Paquete de contexto portable](docs/contexto-portable.md) · [Supabase](docs/supabase.md) · [Agente](docs/agente.md) · [Briefing](docs/briefing.md) · [MCP](docs/mcp.md)
+- [Paquete de contexto portable](docs/contexto-portable.md) · [Supabase](docs/supabase.md) · [Agente](docs/agente.md) · [Briefing](docs/briefing.md) · [MCP](docs/mcp.md) · [Prueba del agente](docs/prueba-agente.md)
 - [Decisiones](docs/decisiones/)
 - [Propuestas para el Vault](vault-proposals/2026-10-07/LEEME.md)

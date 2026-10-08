@@ -26,7 +26,7 @@ paquete/
 - Las notas importables usan secciones `## Objetivos`, `## Reglas`,
   `## Decisiones`, `## Estado` (o sus equivalentes en inglés) con viñetas.
 
-## Generar y verificar
+## Generar, verificar e importar
 
 ```bash
 node scripts/build-manifest.mjs ruta/al/paquete pis-2026-10-XX
@@ -34,6 +34,13 @@ node scripts/build-manifest.mjs ruta/al/paquete pis-2026-10-XX
 
 `verifyManifestFiles` rechaza rutas no portables, hashes que no coinciden,
 archivos ausentes y secretos detectables.
+
+Importar a Supabase (no importa nada si el manifiesto no verifica):
+
+```bash
+npm run import -- ruta/al/paquete --dry-run
+npm run import -- ruta/al/paquete
+```
 
 ## Preguntas de evaluación
 
