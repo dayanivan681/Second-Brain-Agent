@@ -71,3 +71,13 @@ la API está en beta y su configuración puede cambiar.
 memorias eliminadas, briefing, errores, autenticación y un cliente MCP real por
 HTTP. Además se arrancó `npm run mcp` contra Postgres (PGlite por socket) y se
 consultó con `curl`.
+
+### Diagnóstico de conexión
+
+El servidor escribe en los logs de Render una línea por petición a `/mcp`:
+método, ruta, código de estado, duración, `Accept` y `User-Agent` (nunca la
+cabecera `Authorization`). Si un cliente remoto falla, ese código indica la causa:
+`401` → token/cabecera; `405` → método no soportado; ninguna línea → URL incorrecta
+o el servicio estaba dormido (plan free: ~50 s de arranque). Los clientes que solo
+envían `Accept: application/json` se aceptan (el SDK exigiría también
+`text/event-stream` y respondería `406`).
