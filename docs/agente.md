@@ -48,6 +48,11 @@ guarda historia y permite revertir. Obsidian quedaría como vista o exportación
 con herramientas; configurar `OPENAI_API_KEY` y `OPENAI_CHAT_MODEL` (verificar
 privacidad y precios). Los tests usan un modelo guionizado.
 
+## Agentes externos
+
+La memoria también está disponible como servidor MCP de solo lectura
+([mcp.md](mcp.md)) para la Agents API de OpenAI u otros clientes.
+
 ### Selección inicial — 7 de octubre de 2026
 
 Modelo elegido para la primera medición: `OPENAI_CHAT_MODEL=gpt-6-luna`.

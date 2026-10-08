@@ -13,7 +13,13 @@
     "test": "vitest run",
     "check:portable": "node scripts/check-portable.mjs",
     "check": "npm run typecheck && npm test && npm run check:portable",
-    "briefing": "tsx scripts/daily-briefing.ts"
+    "briefing": "tsx scripts/daily-briefing.ts",
+    "mcp": "tsx scripts/mcp-server.ts",
+    "import": "tsx scripts/import-package.ts",
+    "purge-synthetic": "tsx scripts/purge-synthetic.ts",
+    "ask": "tsx scripts/ask-agent.ts",
+    "evaluate:live": "node --import tsx scripts/evaluate-live.ts",
+    "evaluate:score": "node --import tsx scripts/score-live-evaluation.ts"
   },
   "repository": {
     "type": "git",
@@ -27,10 +33,13 @@
     "@types/pg": "^8.23.1",
     "tsx": "^4.23.15",
     "typescript": "^5.9.3",
-    "vitest": "^3.2.7"
+    "vitest": "^5.0.3"
   },
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "openai": "^7.30.0",
     "pg": "^8.23.1",
-    "yaml": "^2.9.1"
+    "yaml": "^2.9.1",
+    "zod": "^4.6.5"
   }
 }

@@ -1,0 +1,34 @@
+name: OpenAI manual validation
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  synthetic-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: second-brain-evaluation
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npm audit --audit-level=moderate
+      - name: Validate selected synthetic inputs without network calls
+        run: npm run evaluate:live -- --dry-run
+      - name: Run actual OpenAI calls on synthetic data only
+        run: npm run evaluate:live
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_EVAL_API_KEY }}
+          OPENAI_CHAT_MODEL: gpt-6-luna
+      - name: Preserve synthetic responses for review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: synthetic-openai-validation
+          path: evaluation-results/
+          retention-days: 7
+          if-no-files-found: ignore

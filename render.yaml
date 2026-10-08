@@ -1,0 +1,22 @@
+# Blueprint de Render para el servidor MCP (docs/mcp.md).
+# Los secretos (sync: false) se introducen en el panel de Render al crear el servicio.
+services:
+  - type: web
+    name: personal-intelligence-mcp
+    runtime: node
+    # free se duerme tras inactividad (primer arranque lento); starter no.
+    plan: free
+    branch: main
+    autoDeploy: true
+    buildCommand: npm ci --include=dev
+    startCommand: npm run mcp
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: DATABASE_URL
+        sync: false
+      - key: MCP_TOKEN
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
