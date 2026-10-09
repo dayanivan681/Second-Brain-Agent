@@ -22,6 +22,7 @@ const server = createMcpHttpServer({
   store,
   now: () => new Date(),
   token: MCP_TOKEN,
+  log: (line) => console.log(line),
   briefings: new PostgresBriefingRepository(sql),
   ...(OPENAI_API_KEY ? { semantic: new SemanticSearch(store, new PostgresVectorIndex(sql), new OpenAIEmbedder(OPENAI_API_KEY)) } : {}),
 });

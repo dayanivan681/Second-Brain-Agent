@@ -102,6 +102,16 @@ describe("transporte HTTP", () => {
     await client.close();
   });
 
+  it("acepta clientes que solo envían Accept: application/json", async () => {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { authorization: `Bearer ${TOKEN}`, "content-type": "application/json", accept: "application/json" },
+      body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "initialize", params: { protocolVersion: "2025-06-18", capabilities: {}, clientInfo: { name: "x", version: "1" } } }),
+    });
+    expect(res.status).toBe(200);
+    expect(((await res.json()) as { result: { serverInfo: { name: string } } }).result.serverInfo.name).toBe("personal-intelligence-system");
+  });
+
   it("exige un token largo", async () => {
     const d = await deps();
     expect(() => createMcpHttpServer({ ...d, token: "corto" })).toThrow("MCP_TOKEN");
