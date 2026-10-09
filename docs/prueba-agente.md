@@ -15,10 +15,18 @@ Con `OPENAI_API_KEY` también genera embeddings; sin ella, la búsqueda es textu
 ## 2. Hablar con el agente
 
 El panel de sesiones de la plataforma solo muestra trazas; los mensajes se envían
-por API. Con la sesión creada (Agents → Sessions → *Copy session ID*):
+por API, y solo con la clave que creó la sesión (las sesiones iniciadas desde el
+panel responden `403`). Por eso el script crea la sesión él mismo a partir del
+agente (Agents → *Copy agent ID*):
 
 ```bash
-npm run ask -- <session_id> "¿Cuál es el objetivo de fecha del proyecto Alfa?"
+npm run ask -- <agent_id> "¿Cuál es el objetivo de fecha del proyecto Alfa?"
+```
+
+Imprime el `sess_…` creado; para seguir la misma conversación:
+
+```bash
+npm run ask -- <session_id> "¿Y qué está pendiente?"
 ```
 
 Muestra la respuesta en vivo y cada llamada al MCP (`[MCP search_memories(...) → ok]`).
